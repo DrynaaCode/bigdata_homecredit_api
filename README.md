@@ -27,14 +27,28 @@ Cette API permet de scorer les clients de la banque Home Credit à partir de leu
 - Paramètre : identifiant client
 - Réponse : score de crédit calculé par le modèle ML
 
-## Lancement de l'API
+
+## Installation et préparation des données
 
 1. Installer les dépendances :
 ```bash
 pip install -r requierements.txt
 ```
-2. Configurer le fichier `.env` (MongoDB, chemin du modèle, etc.)
-3. Lancer le serveur :
+
+2. Placer les fichiers CSV dans le dossier `data/` :
+   - `application_train.csv` (données d'entraînement)
+   - `application_test.csv` (données de test)
+
+3. Générer le modèle pkl :
+   - Exécuter le script d'entraînement :
+   ```bash
+   python app/utils/train_save_model.py
+   ```
+   - Le modèle sera sauvegardé dans `models_artifacts/model.pkl`
+
+4. Configurer le fichier `.env` (MongoDB, chemin du modèle, etc.)
+
+5. Lancer le serveur :
 ```bash
 uvicorn app.main:app --reload
 ```
@@ -48,6 +62,7 @@ api/
     services/
     schemas/
     utils/
+      train_save_model.py
   models_artifacts/
     model.pkl
   data/
