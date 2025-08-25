@@ -210,12 +210,15 @@ async def get_client_by_id(id: str):
             gender=client.get("CODE_GENDER"),
             raw=ClientRaw.model_validate(client)
         )
+        thr = float(os.getenv("THRESHOLD", "0.5"))
+        pred = 1 if score >= thr else 0
+        dec = "REJECT" if pred == 1 else "ACCEPT"
         return ClientDetailResponse(
             client=detail,
             prediction=int(score),      # conversion explicite
             proba_default=float(score), # conversion explicite
-            threshold=0.0,
-            decision="",
+            threshold=thr,
+            decision=dec,
             top_features=[]
         )
     except Exception as e:
