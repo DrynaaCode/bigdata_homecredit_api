@@ -1,14 +1,32 @@
+# fastapi==0.116.1
+# uvicorn==0.35.0
+
+# motor==3.7.1
+# pymongo==4.14.1
+# python_dotenv==1.1.1
+# pydantic==2.5.3
+# fastapi
+# uvicorn
+# motor
+# scikit-learn
+# pandas
+# numpy
+# python-dotenv
+
+# Web API
 fastapi==0.116.1
 uvicorn==0.35.0
 
+# Mongo async
 motor==3.7.1
-pymongo==4.14.1
-python_dotenv==1.1.1
-pydantic==2.5.3
-fastapi
-uvicorn
-motor
-scikit-learn
-pandas
-numpy
-python-dotenv
+
+# Config .env
+python-dotenv==1.1.1
+
+# Validation (évite la compile Rust sur py3.12)
+pydantic>=2.8,<3.0
+
+# ML stack (optionnel mais si tu en as besoin côté API)
+scikit-learn==1.5.2
+pandas==2.2.2
+numpy==1.26.4
