@@ -40,5 +40,5 @@ pydantic>=2.8,<3.0
 
 # ML stack (py3.13, wheels cp313)
 scikit-learn==1.7.1
-pandas==2.3.2
+# pandas==2.3.2
 numpy==2.3.2
