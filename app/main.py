@@ -20,10 +20,10 @@ from starlette.exceptions import HTTPException as StarletteHTTPException
 app.add_exception_handler(StarletteHTTPException, custom_http_exception_handler)
 
 # Import et inclusion du router test
-from app.routers import test, predict, clients_joblib
+from app.routers import test, predict, clients
 app.include_router(test.router)
 app.include_router(predict.router)
-app.include_router(clients_joblib.router)
+app.include_router(clients.router)
 
 # Événement de démarrage
 @app.on_event("startup")
