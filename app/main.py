@@ -7,7 +7,6 @@ from bson import ObjectId
 from typing import List, Optional
 import uvicorn
 
-
 from app.services.database import connect_to_mongo, close_mongo_connection, get_database
 
 # Créer l'instance FastAPI
@@ -21,10 +20,10 @@ from starlette.exceptions import HTTPException as StarletteHTTPException
 app.add_exception_handler(StarletteHTTPException, custom_http_exception_handler)
 
 # Import et inclusion du router test
-from app.routers import test, clients, predict
+from app.routers import test, predict, clients_joblib
 app.include_router(test.router)
-app.include_router(clients.router)
 app.include_router(predict.router)
+app.include_router(clients_joblib.router)
 
 # Événement de démarrage
 @app.on_event("startup")
