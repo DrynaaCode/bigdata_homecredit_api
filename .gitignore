@@ -62,7 +62,7 @@ coverage.xml
 *.env
 environment.py
 secrets.py
-config.py
+# config.py
 credentials.json
 *.key
 *.pem
@@ -116,4 +116,4 @@ secrets.py
 data/
 *.csv
 *.json
-*.pkl
+# *.pkl
